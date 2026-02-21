@@ -1,0 +1,200 @@
+@tailwind base;
+@tailwind components;
+@tailwind utilities;
+
+@import url('https://fonts.googleapis.com/css2?family=Fredoka:wght@300;400;500;600;700&family=Nunito:wght@400;600;700;800&display=swap');
+
+@layer base {
+  :root {
+    --background: 340 100% 97%;
+    --foreground: 340 50% 20%;
+    --card: 0 0% 100%;
+    --card-foreground: 340 50% 20%;
+    --popover: 0 0% 100%;
+    --popover-foreground: 340 50% 20%;
+    --primary: 340 80% 75%;
+    --primary-foreground: 0 0% 100%;
+    --secondary: 280 60% 90%;
+    --secondary-foreground: 340 50% 20%;
+    --muted: 340 30% 95%;
+    --muted-foreground: 340 20% 50%;
+    --accent: 45 100% 85%;
+    --accent-foreground: 340 50% 20%;
+    --destructive: 0 84.2% 60.2%;
+    --destructive-foreground: 0 0% 98%;
+    --border: 340 40% 88%;
+    --input: 340 40% 88%;
+    --ring: 340 80% 75%;
+    --radius: 1rem;
+    
+    --sanrio-pink: #FFB7C5;
+    --sanrio-rose: #FF69B4;
+    --sanrio-purple: #DDA0DD;
+    --sanrio-blue: #87CEEB;
+    --sanrio-yellow: #FFFACD;
+    --sanrio-cream: #FFF5EE;
+    --sanrio-lavender: #E6E6FA;
+    --sanrio-peach: #FFDAB9;
+  }
+}
+
+@layer base {
+  * {
+    @apply border-border;
+  }
+  html {
+    scroll-behavior: smooth;
+  }
+  body {
+    @apply bg-background text-foreground;
+    font-family: 'Nunito', sans-serif;
+    overflow-x: hidden;
+  }
+  h1, h2, h3, h4, h5, h6 {
+    font-family: 'Fredoka', sans-serif;
+  }
+}
+
+@layer utilities {
+  .text-gradient-pink {
+    background: linear-gradient(135deg, #FF69B4 0%, #FFB7C5 50%, #DDA0DD 100%);
+    -webkit-background-clip: text;
+    -webkit-text-fill-color: transparent;
+    background-clip: text;
+  }
+  
+  .bg-gradient-sanrio {
+    background: linear-gradient(180deg, #FFF5EE 0%, #FFE4E1 30%, #FFB7C5 70%, #DDA0DD 100%);
+  }
+  
+  .bg-gradient-pastel {
+    background: linear-gradient(135deg, #FFB7C5 0%, #DDA0DD 25%, #87CEEB 50%, #FFFACD 75%, #FFDAB9 100%);
+  }
+  
+  .glass-card {
+    background: rgba(255, 255, 255, 0.7);
+    backdrop-filter: blur(10px);
+    border: 2px solid rgba(255, 255, 255, 0.5);
+  }
+  
+  .float-animation {
+    animation: float 3s ease-in-out infinite;
+  }
+  
+  .bounce-gentle {
+    animation: bounceGentle 2s ease-in-out infinite;
+  }
+  
+  .pulse-glow {
+    animation: pulseGlow 2s ease-in-out infinite;
+  }
+  
+  .spin-slow {
+    animation: spinSlow 8s linear infinite;
+  }
+  
+  .wiggle {
+    animation: wiggle 1s ease-in-out infinite;
+  }
+  
+  .heart-beat {
+    animation: heartBeat 1.5s ease-in-out infinite;
+  }
+  
+  .sparkle {
+    animation: sparkle 2s ease-in-out infinite;
+  }
+  
+  .slide-up {
+    animation: slideUp 0.8s ease-out forwards;
+  }
+  
+  .fade-in {
+    animation: fadeIn 1s ease-out forwards;
+  }
+  
+  .scale-in {
+    animation: scaleIn 0.5s ease-out forwards;
+  }
+}
+
+@keyframes float {
+  0%, 100% { transform: translateY(0px); }
+  50% { transform: translateY(-20px); }
+}
+
+@keyframes bounceGentle {
+  0%, 100% { transform: translateY(0) scale(1); }
+  50% { transform: translateY(-10px) scale(1.02); }
+}
+
+@keyframes pulseGlow {
+  0%, 100% { box-shadow: 0 0 20px rgba(255, 183, 197, 0.5); }
+  50% { box-shadow: 0 0 40px rgba(255, 183, 197, 0.8), 0 0 60px rgba(221, 160, 221, 0.5); }
+}
+
+@keyframes spinSlow {
+  from { transform: rotate(0deg); }
+  to { transform: rotate(360deg); }
+}
+
+@keyframes wiggle {
+  0%, 100% { transform: rotate(-3deg); }
+  50% { transform: rotate(3deg); }
+}
+
+@keyframes heartBeat {
+  0%, 100% { transform: scale(1); }
+  14% { transform: scale(1.1); }
+  28% { transform: scale(1); }
+  42% { transform: scale(1.1); }
+  70% { transform: scale(1); }
+}
+
+@keyframes sparkle {
+  0%, 100% { opacity: 1; transform: scale(1) rotate(0deg); }
+  50% { opacity: 0.5; transform: scale(1.2) rotate(180deg); }
+}
+
+@keyframes slideUp {
+  from { opacity: 0; transform: translateY(50px); }
+  to { opacity: 1; transform: translateY(0); }
+}
+
+@keyframes fadeIn {
+  from { opacity: 0; }
+  to { opacity: 1; }
+}
+
+@keyframes scaleIn {
+  from { opacity: 0; transform: scale(0.8); }
+  to { opacity: 1; transform: scale(1); }
+}
+
+@keyframes fall {
+  0% { transform: translateY(-100vh) rotate(0deg); opacity: 1; }
+  100% { transform: translateY(100vh) rotate(360deg); opacity: 0; }
+}
+
+.falling-heart {
+  animation: fall linear infinite;
+}
+
+/* Custom scrollbar */
+::-webkit-scrollbar {
+  width: 12px;
+}
+
+::-webkit-scrollbar-track {
+  background: linear-gradient(180deg, #FFF5EE, #FFB7C5);
+}
+
+::-webkit-scrollbar-thumb {
+  background: linear-gradient(180deg, #FF69B4, #DDA0DD);
+  border-radius: 10px;
+  border: 3px solid #FFF5EE;
+}
+
+::-webkit-scrollbar-thumb:hover {
+  background: linear-gradient(180deg, #FF1493, #BA55D3);
+}
